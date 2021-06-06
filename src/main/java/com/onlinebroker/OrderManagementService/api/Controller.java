@@ -22,20 +22,20 @@ public class Controller {
     @Autowired
     private RabbitTemplate template;
 
-    @PostMapping(value = "/order")
+    @PostMapping(value = "/orderService/orders")
     @CrossOrigin(origins = {"http://localhost:3000"}) //for local development
     public void addOrder(@RequestBody OrderDTO orderDTO) {
         orderManagementService.addOrder(orderDTO);
         new RabbitExchangePublisher().publishOrderOnExchange(orderDTO, template);
     }
 
-    @GetMapping(value = "/{userId}/orders")
+    @GetMapping(value = "/orderService/users/{userId}/orders")
     @CrossOrigin(origins = {"http://localhost:3000"}) //for local development
     public ArrayList<OrderEntity> getAllOrders(@PathVariable String userId) {
         return orderManagementService.getAllOrders(userId);
     }
 
-    @GetMapping(value = "/{userId}/order")
+    @GetMapping(value = "/orderService/users/{userId}/order")
     @CrossOrigin(origins = {"http://localhost:3000"}) //for local development
     public OrderEntity getSingleOrder(@PathVariable String orderId) {
         return orderManagementService.getSingleOrder(orderId);
