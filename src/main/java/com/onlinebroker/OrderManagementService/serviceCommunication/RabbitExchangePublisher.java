@@ -13,5 +13,4 @@ public class RabbitExchangePublisher {
         template.convertAndSend(MessagingConfig.EXCHANGE, MessagingConfig.ROUTING_KEY, orderDTO);
         System.out.println("new order sent to" +MessagingConfig.EXCHANGE +"...");
     }
-
 }
