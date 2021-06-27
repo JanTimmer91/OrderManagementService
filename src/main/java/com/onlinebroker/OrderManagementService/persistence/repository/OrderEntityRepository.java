@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Repository
 public interface OrderEntityRepository extends CrudRepository<OrderEntity, String> {
-    OrderEntity findByOrderId(String orderId);
-    ArrayList<OrderEntity> findByUserId(String userId);
+    OrderEntity findOrderByOrderId(String orderId);
+    ArrayList<OrderEntity> findOrdersByUserId(String userId);
 
 }

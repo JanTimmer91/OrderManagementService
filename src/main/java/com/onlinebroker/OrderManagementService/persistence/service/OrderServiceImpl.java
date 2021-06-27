@@ -1,4 +1,4 @@
-package com.onlinebroker.OrderManagementService.service;
+package com.onlinebroker.OrderManagementService.persistence.service;
 
 import com.onlinebroker.OrderManagementService.dto.OrderDTO;
 import static com.onlinebroker.OrderManagementService.persistence.entity.OrderEntity.*;
@@ -13,7 +13,7 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 
 @Service
-public class PersistenceService {
+public class OrderServiceImpl implements OrderServiceInterface{
 
     @Autowired
     OrderEntityRepository orderEntityRepository;
@@ -33,10 +33,10 @@ public class PersistenceService {
         orderEntityRepository.save(orderEntity);
     }
     public ArrayList<OrderEntity> getAllOrders(String userId) {
-        return orderEntityRepository.findByUserId(userId);
+        return orderEntityRepository.findOrdersByUserId(userId);
     }
 
     public OrderEntity getSingleOrder(String orderId) {
-        return orderEntityRepository.findByOrderId(orderId);
+        return orderEntityRepository.findOrderByOrderId(orderId);
     }
 }
