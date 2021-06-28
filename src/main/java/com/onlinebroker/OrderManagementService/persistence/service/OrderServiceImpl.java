@@ -1,8 +1,8 @@
 package com.onlinebroker.OrderManagementService.persistence.service;
 
-import com.onlinebroker.OrderManagementService.dto.OrderDTO;
 import static com.onlinebroker.OrderManagementService.persistence.entity.OrderEntity.*;
 
+import com.onlinebroker.OrderManagementService.dto.requestDTO.OrderRequestDTO;
 import com.onlinebroker.OrderManagementService.persistence.entity.OrderEntity;
 import com.onlinebroker.OrderManagementService.persistence.repository.OrderEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class OrderServiceImpl implements OrderServiceInterface{
     @Autowired
     OrderEntityRepository orderEntityRepository;
 
-    public void saveOrder(OrderDTO orderDTO) {
+    public void saveOrder(OrderRequestDTO orderDTO) {
         OrderEntity orderEntity
                 = new OrderEntity(
                 orderDTO.getOrderId(),

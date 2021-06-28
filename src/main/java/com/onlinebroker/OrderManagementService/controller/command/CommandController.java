@@ -1,8 +1,9 @@
 package com.onlinebroker.OrderManagementService.controller.command;
 
-import com.onlinebroker.OrderManagementService.persistence.entity.OrderEntity;
+import com.onlinebroker.OrderManagementService.dto.requestDTO.OrderRequestDTO;
+import com.onlinebroker.OrderManagementService.dto.responseDTO.MessageResponseDTO;
 import com.onlinebroker.OrderManagementService.domain.OrderManagementServiceImpl;
-import com.onlinebroker.OrderManagementService.dto.OrderDTO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,7 +19,9 @@ public class CommandController {
 
     @PostMapping(value = "/orderService/orders")
     @CrossOrigin(origins = {"http://localhost:3000"}) //for local development
-    public void addOrder(@RequestBody OrderDTO orderDTO) {
+    public ResponseEntity<?> addOrder(@RequestBody OrderRequestDTO orderDTO) {
         orderManagementServiceImpl.addOrder(orderDTO);
+        return ResponseEntity.ok(new MessageResponseDTO("Item removed from watchlist!"));
+
     }
 }

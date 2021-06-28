@@ -1,8 +1,8 @@
 package com.onlinebroker.OrderManagementService.controller.query;
 
+import com.onlinebroker.OrderManagementService.dto.requestDTO.OrderRequestDTO;
 import com.onlinebroker.OrderManagementService.persistence.entity.OrderEntity;
 import com.onlinebroker.OrderManagementService.domain.OrderManagementServiceImpl;
-import com.onlinebroker.OrderManagementService.dto.OrderDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

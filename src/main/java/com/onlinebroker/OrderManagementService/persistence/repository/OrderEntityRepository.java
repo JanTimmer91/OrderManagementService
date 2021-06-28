@@ -10,5 +10,4 @@ import java.util.ArrayList;
 public interface OrderEntityRepository extends CrudRepository<OrderEntity, String> {
     OrderEntity findOrderByOrderId(String orderId);
     ArrayList<OrderEntity> findOrdersByUserId(String userId);
-
 }

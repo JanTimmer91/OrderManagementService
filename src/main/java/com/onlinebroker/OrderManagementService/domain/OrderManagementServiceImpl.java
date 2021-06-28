@@ -1,6 +1,6 @@
 package com.onlinebroker.OrderManagementService.domain;
 
-import com.onlinebroker.OrderManagementService.dto.OrderDTO;
+import com.onlinebroker.OrderManagementService.dto.requestDTO.OrderRequestDTO;
 import com.onlinebroker.OrderManagementService.persistence.entity.OrderEntity;
 import com.onlinebroker.OrderManagementService.persistence.service.OrderServiceImpl;
 import com.onlinebroker.OrderManagementService.serviceCommunication.OrderPublisher;
@@ -19,7 +19,7 @@ public class OrderManagementServiceImpl implements OrderManagementServiceInterfa
     @Autowired
     private RabbitTemplate template;
 
-    public void addOrder(OrderDTO orderDTO) {
+    public void addOrder(OrderRequestDTO orderDTO) {
         this.orderServiceImpl.saveOrder(orderDTO);
         new OrderPublisher().publishOrderOnExchange(orderDTO, template);
     }

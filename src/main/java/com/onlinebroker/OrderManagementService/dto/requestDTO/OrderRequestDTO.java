@@ -1,4 +1,4 @@
-package com.onlinebroker.OrderManagementService.dto;
+package com.onlinebroker.OrderManagementService.dto.requestDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import java.util.Date;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDTO {
+public class OrderRequestDTO {
     private String orderId;
     private String userId;
     private String type;
